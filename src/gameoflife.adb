@@ -1,6 +1,7 @@
 with Ada.Calendar;
 with Window;
 with Grids, Grids.Rules, Grids.Display_ANSI, Grids.OpenGL_Display;
+with CLI;
 
 procedure GameOfLife is
    use type Ada.Calendar.Time, Grids.Row_Index, Grids.Col_Index;
@@ -10,9 +11,9 @@ procedure GameOfLife is
    Height : constant := 800;
    Next   : Ada.Calendar.Time;
 
-   G_Width  : constant := 16;
-   G_Height : constant := 16;
-   Decay    : constant := 3;
+   G_Width  : constant := 100;
+   G_Height : constant := 100;
+   Decay    : constant := 6;
    Grid     : Grids.Grid_Type (G_Height, G_Width, Decay);
 
 begin
@@ -24,11 +25,11 @@ begin
    -- Grid.Set (G_Height / 2 + 1, G_Width / 2,     Decay);
    -- Grid.Set (G_Height / 2 + 2, G_Width / 2 + 2, Decay);
    Grids.OpenGL_Display.Start (Grid);
-   Grids.Display_ANSI (Grid);
+   -- Grids.Display_ANSI (Grid);
    Next := Ada.Calendar.Clock + Sleep;
    while Window.Is_Open loop
       Window.Begin_Frame;
-      Grids.Display_ANSI (Grid);
+      -- Grids.Display_ANSI (Grid);
       Grids.OpenGL_Display.Frame (Grid);
       Window.End_Frame;
       delay until Next;
