@@ -19,12 +19,6 @@ package body Grids.Rules is
       Rule (Grid, Process'Access);
    end Triangle;
 
-   -- procedure Missile (Grid : in out Grid_Type);
-   -- procedure Ships (Grid : in out Grid_Type);
-   -- procedure Snowflake (Grid : in out Grid_Type);
-   -- procedure Colonies (Grid : in out Grid_Type);
-   -- procedure Wave (Grid : in out Grid_Type);
-
    procedure Wave (Grid : in out Grid_Type) is
       function Process (Row : in Row_Index; Col : in Col_Index)
          return Boolean is (
